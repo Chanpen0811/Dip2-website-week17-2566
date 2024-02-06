@@ -1,9 +1,16 @@
 <script setup>
+import router from '@/router';
 import { RouterLink } from 'vue-router'
+
+const logOut = async () => {
+    localStorage.clear()
+    await router.push({ name: 'signin' })
+}
+
 </script>
 
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark shadow" style="background: #7f00ff;">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow" style="background: #da2798;">
         <div class="container">
             <RouterLink :to="{ name: 'home' }" class="navbar-brand">ไอทีตราด</RouterLink>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -17,11 +24,34 @@ import { RouterLink } from 'vue-router'
                                 class="bi bi-house-fill me-1"></i>หน้าแรก</RouterLink>
                     </li>
                     <li class="nav-item">
-                        <router-link :to="{name:'signin'}" class="nav-link" href="#"><i class="bi bi-bank me-1"></i>Sign-in</router-link>
+                        <router-link :to="{ name: 'signin' }" class="nav-link" href="#"><i
+                                class="bi bi-bank me-1"></i>เข้าสู่ระบบ</router-link>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-bank me-1"></i>สิ่งมหัศจรรย์ของโลก</a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-bank2 me-1"></i>สิ่งมหัศจรรย์ของโลก
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <RouterLink :to="{ name: 'wonders' }" class="dropdown-item">สิ่งมหัศจรรย์ของโลก
+                                </RouterLink>
+                            </li>
+                            <li>
+                                <RouterLink :to="{ name: 'add-wonder' }" class="dropdown-item">เพิ่มสิ่งมหัศจรรย์ของโลก
+                                </RouterLink>
+                            </li>
+                            <li><a class="dropdown-item" href="#">แก้ไขสิ่งมหัศจรรย์ของโลก</a></li>
+                            <li><a class="dropdown-item" href="#">ลบมหัศจรรย์ของโลก</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="https://www.wonderspodcast.com/wonders">เว็บไซต์ สิ่งมหัศจรรย์ของโลก</a></li>
+                        </ul>
                     </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -65,7 +95,11 @@ import { RouterLink } from 'vue-router'
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">เว็บอื่นๆ</a>
+                        <a class="nav-link" href="#">เว็บอื่นๆ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" @click="logOut"><i
+                                class="bi bi-box-arrow-right me-1"></i>ออกจากระบบ</a>
                     </li>
                 </ul>
             </div>
