@@ -6,6 +6,7 @@
                     <img :src="item.imageUrl" class="card-img-top" height="200px" alt="wonders">
                     <div class="card-body">
                         <h5 class="card-title">{{ item.name }}</h5>
+                        <h5 class="card-title">{{ item.price }}</h5>
                         <p class="card-text">Location - {{ item.location }}</p>
                     </div>
                 </div>
