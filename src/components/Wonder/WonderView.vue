@@ -5,7 +5,7 @@
                 <div class="card shadow" style="height:18rem;">
                     <img :src="item.imageUrl" class="card-img-top" height="200px" alt="wonders">
                     <div class="card-body">
-                        <h5 class="card-title">{{ item.name }} {{ item.price }} </h5>
+                        <span class="card-title fs-4">{{ item.name }} {{ item.price }} </span>
                         <p class="card-text">Location - {{ item.location }}</p>
                     </div>
                 </div>
