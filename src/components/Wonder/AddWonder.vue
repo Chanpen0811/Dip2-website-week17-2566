@@ -25,7 +25,11 @@
                             </div>
                             <div class="mb-1">
                                 <label for="">ตำแหน่ง ที่อยู่ อาหาร</label>
-                                <input type="text" class="form-control" v-model="wonderState.label" />
+                                <input type="text" class="form-control" v-model="wonderState.location" />
+                            </div>
+                            <div class="mb-1">
+                                <label for="">ราคา</label>
+                                <input type="text" class="form-control" v-model="wonderState.price" />
                             </div>
                             <div class="mb-1">
                                 <label for="">ลิงค์เมนูอาหาร</label>
@@ -55,6 +59,7 @@ import { useRouter } from 'vue-router';
 const wonderState = reactive({
     name: '',
     location: '',
+    price: '',
     imageUrl:''
 })
 
